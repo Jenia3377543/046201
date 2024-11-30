@@ -1,0 +1,22 @@
+function [X_n] = gen_x(omega_0,N,num_hypotesis,offsets)
+arguments
+    omega_0                {mustBeNumeric}
+    N                      {mustBeNumeric}
+    num_hypotesis  {mustBeInteger} = 1
+    offsets (:, 1) = 0;
+end
+discreate_time_domain = (0:N-1) + offsets;
+NUM_OFFSETS = height(offsets);
+
+A_B_hC = tensorprod(randn(NUM_OFFSETS, 1, num_hypotesis, 3), diag([1 1 1/sqrt(2)]), 4, 1);
+
+Z_n = randn(NUM_OFFSETS, N, num_hypotesis);
+parts = cat(3, ...
+    cos(omega_0 * discreate_time_domain) .^ 2, ...
+    sin(omega_0 * discreate_time_domain) .^ 2, ...
+    sin(2 * omega_0 * discreate_time_domain) ...
+    );
+parts = reshape(parts, [size(parts), 1]);
+parts = permute(parts, [1 2 4 3]);
+X_n = tensorprod(parts, A_B_hC, 4, 4) + Z_n;
+end

@@ -8,8 +8,8 @@ title({ ...
     compose("\\omega_0=%.3f", omega_0), ...
     compose("\\mu=%.3f; \\sigma=%.3f", mean_diffs, std_diffs)});
 %% Section c
-omega_0 = 0;
-[r_xx_diffs_mean, r_xx_diffs_std, r_xx_diffs] = erg2(omega_0);
+omega_0 = 0.5;
+[r_xx_diffs, r_xx_diffs_mean, r_xx_diffs_std] = erg2(omega_0);
 
 figure(998);
 for k = 1:height(r_xx_diffs)

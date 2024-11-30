@@ -7,6 +7,7 @@ LENGTH = 10000;
 
 gt_mean = 0;
 X_n = gen_x(omega_0, LENGTH, num_hypotesis);
+X_n = squeeze(X_n);
 
 empirical_mean = mean(X_n, 2);
 diffs = empirical_mean - gt_mean;

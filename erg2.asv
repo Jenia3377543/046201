@@ -1,0 +1,18 @@
+function [X_n] = erg2(omega_0)
+arguments
+    omega_0
+end
+num_hypotesis = 100;
+LENGTH = 1000;
+OFFSETS = (0:10)';
+
+gt_mean = 0;
+X_n = gen_x(omega_0, LENGTH, num_hypotesis, OFFSETS);
+r_xx_ii = X_n .* X_n(1, :, :);
+r_xx = mean(r_xx_ii, 3);
+
+r_xx_diffs = r_xx;
+r_xx_mean = mean(r_xx_diffs, 2);
+r_xx_std = std(r_xx_diffs, 2);
+
+end
