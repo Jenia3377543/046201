@@ -8,7 +8,7 @@ end
 discreate_time_domain = (0:N-1) + OFFSETS;
 NUM_OFFSETS = height(OFFSETS);
 
-A_B_hC = tensorprod(randn(NUM_OFFSETS, NUM_HYPOTESIS, 1, 3), diag([1 1 1/sqrt(2)]), 4, 1);
+A_B_hC = tensorprod(randn(NUM_OFFSETS, NUM_HYPOTESIS, 1, 3), diag([1 1 0]), 4, 2);
 
 Z_n = randn(NUM_OFFSETS, NUM_HYPOTESIS, N);
 X_n_parts = cat(3, ...

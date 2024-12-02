@@ -2,7 +2,7 @@ function [mean_diffs,std_diffs, diffs] = erg1(omega_0)
 arguments
     omega_0
 end
-num_hypotesis = 1000;
+num_hypotesis = 10000;
 LENGTH = 10000;
 
 gt_mean = 0;

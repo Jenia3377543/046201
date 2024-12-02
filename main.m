@@ -1,5 +1,5 @@
 %% Section a-b
-omega_0 = 0.0;
+omega_0 = 0.5;
 [mean_diffs,std_diffs, diffs] = erg1(omega_0);
 
 figure(999); 

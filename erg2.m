@@ -6,7 +6,7 @@ num_hypotesis = 100;
 LENGTH = 1000;
 OFFSETS = (0:10)';
 
-gt_r_xx = @(k) (1/2) + (k == 0) + (1/2) * cos(2 * omega_0 * k);
+gt_r_xx = @(k) (k == 0) + cos(omega_0 * k) .^ 2;
 X_n = gen_x(omega_0, LENGTH, num_hypotesis, OFFSETS);
 X_n_mean = mean(X_n, 3);
 r_xx_ii = (X_n - X_n_mean) .* (X_n(1, :, :) - X_n_mean(1, :));
