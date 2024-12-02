@@ -8,8 +8,10 @@ OFFSETS = (0:10)';
 
 gt_r_xx = @(k) (k == 0) + cos(omega_0 * k) .^ 2;
 X_n = gen_x(omega_0, LENGTH, num_hypotesis, OFFSETS);
+
 X_n_mean = mean(X_n, 3);
-r_xx_ii = (X_n - X_n_mean) .* (X_n(1, :, :) - X_n_mean(1, :));
+gt_X_n_mean = 0;
+r_xx_ii = (X_n - gt_X_n_mean) .* (X_n(1, :, :) - gt_X_n_mean);
 r_xx = mean(r_xx_ii, 3);
 
 r_xx_diffs = r_xx - gt_r_xx(OFFSETS);

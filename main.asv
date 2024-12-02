@@ -8,10 +8,10 @@ title({ ...
     compose("\\omega_0=%.3f", omega_0), ...
     compose("\\mu=%.3f; \\sigma=%.3f", mean_diffs, std_diffs)});
 %% Section c
-omega_0 = 0.5;
+omega_0 = pi/2;
 [r_xx_diffs_mean, r_xx_diffs_std, r_xx_diffs] = erg2(omega_0);
 
-figure(998);
+figure(998); clf;
 for k = 1:height(r_xx_diffs)
     nexttile;
     histogram(r_xx_diffs(k, :), -5:1e-1:5);
