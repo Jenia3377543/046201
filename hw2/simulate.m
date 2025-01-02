@@ -23,7 +23,7 @@ mean_error = mean(diffs.^2, 1);
 % Plot the MSE error by discreate time index
 figure(999);
 plot(mean_error, '*--');
-title('MSE error');
+title({'MSE error', compose("b=%.2f", b)});
 xlabel('Time index');
-ylabel('$X_n - \hat{X}_n$', 'Interpreter','latex');
+ylabel('$\mathbf E[(X_n - \hat{X}_n)^2]$', 'Interpreter','latex');
 end
